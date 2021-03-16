@@ -1,19 +1,18 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Center, Grid } from "@chakra-ui/react";
 import Head from "next/head";
 import { useAuth } from "../lib/auth";
 
 export default function Home(props) {
   const auth = useAuth();
   return (
-    <div>
+    <Grid>
       <Head>
         <title>Laya</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Hello</h1>
+      <Center p={12}>
         {auth.user ? (
-          "hello"
+          <h1>Hello</h1>
         ) : (
           <Button
             onClick={() => {
@@ -32,7 +31,7 @@ export default function Home(props) {
             logout
           </Button>
         )}
-      </main>
-    </div>
+      </Center>
+    </Grid>
   );
 }
