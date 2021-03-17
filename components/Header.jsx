@@ -1,4 +1,4 @@
-import { Flex, Box, Text, Link } from '@chakra-ui/react';
+import { Flex, Box, Text, Link } from "@chakra-ui/react";
 
 const Header = ({ isAdmin }) => {
   return (
@@ -9,9 +9,9 @@ const Header = ({ isAdmin }) => {
       p={4}
     >
       <Box>
-        <Link href="/"> Logo</Link>
+        <Link href="/">Logo</Link>
       </Box>
-      <Text fontSize="2xl">{isAdmin ? 'Admin' : 'user'}</Text>
+      <Text fontSize="2xl">{isAdmin ? "Admin" : "user"}</Text>
     </Flex>
   );
 };

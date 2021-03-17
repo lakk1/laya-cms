@@ -1,5 +1,5 @@
-import { Grid } from '@chakra-ui/react';
-import Header from './header';
+import { Grid } from "@chakra-ui/react";
+import Header from "./Header";
 
 const AdminLayout = ({ children }) => {
   return (
