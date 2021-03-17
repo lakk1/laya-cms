@@ -1,7 +1,7 @@
-import AuthContainer from '@/components/AuthContainer';
-import UserLayout from '@/components/UserLayout';
-import Head from 'next/head';
-import { useAuth } from '@/lib/auth';
+import AuthContainer from "@/components/AuthContainer";
+import UserLayout from "@/components/UserLayout";
+import Head from "next/head";
+import { useAuth } from "@/lib/auth";
 
 export default function Home(props) {
   const auth = useAuth();
@@ -11,7 +11,7 @@ export default function Home(props) {
         <title>Laya</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AuthContainer user={auth.user} />
+      <AuthContainer auth={auth} />
     </UserLayout>
   );
 }
