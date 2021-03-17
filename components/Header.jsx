@@ -9,7 +9,7 @@ const Header = ({ isAdmin }) => {
       p={4}
     >
       <Box>
-        <Link href="/">Logo</Link>
+        <Link href="/">Laya</Link>
       </Box>
       <Text fontSize="2xl">{isAdmin ? "Admin" : "user"}</Text>
     </Flex>
