@@ -1,8 +1,10 @@
 import { Box, Text, useToast } from "@chakra-ui/react";
+import Router from "next/router";
 import _kebabCase from "lodash/kebabCase";
 import { uploadImages } from "@/lib/storage";
 import { createProduct } from "@/lib/db";
 import ProductForm from "./ProductForm";
+import AdminLayout from "@/components/AdminLayout";
 
 const AddProduct = () => {
   const toast = useToast();
@@ -21,17 +23,20 @@ const AddProduct = () => {
           isClosable: true,
           position: "top-right",
         });
+        Router.push("/admin/products");
       });
     });
   };
 
   return (
-    <Box p={4}>
-      <Text fontSize="4xl">Add Product</Text>
-      <Box m={4}>
-        <ProductForm onSave={handleSave} />
+    <AdminLayout>
+      <Box p={4}>
+        <Text fontSize="4xl">Add Product</Text>
+        <Box m={4}>
+          <ProductForm onSave={handleSave} />
+        </Box>
       </Box>
-    </Box>
+    </AdminLayout>
   );
 };
 
