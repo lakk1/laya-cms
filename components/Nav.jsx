@@ -4,6 +4,7 @@ import {
   Text,
   IconButton,
   Button,
+  Image,
   Stack,
   Collapse,
   Icon,
@@ -15,7 +16,6 @@ import {
   useBreakpointValue,
   useDisclosure,
   Avatar,
-  Image,
   Center,
 } from "@chakra-ui/react";
 import {
@@ -25,13 +25,10 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
-// import Image from "next/image";
-// import Logo from "../images/logo.png";
+import Logo from "../images/logo.png";
 
-export default function WithSubnavigation({ auth }) {
+export default function WithSubnavigation({ user, signInWithGoogle, signOut }) {
   const { isOpen, onToggle } = useDisclosure();
-  console.log({ auth });
-  const { user, signinWithGoogle, signout } = auth;
 
   return (
     <Box>
@@ -61,7 +58,7 @@ export default function WithSubnavigation({ auth }) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image src={"/images/logo.png"} width="120px" alt="laya" />
+          <img src={Logo} width="120px" alt="laya" />
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -74,17 +71,14 @@ export default function WithSubnavigation({ auth }) {
           cursor="pointer"
         >
           {user ? (
-            <Flex align={"center"}>
-              <Text mr={8}>{user.name}</Text>
-              <Button
-                colorScheme="red"
+            <Box align={"center"}>
+              <Avatar
                 onClick={() => {
-                  signout();
+                  signOut();
                 }}
-              >
-                logout
-              </Button>
-            </Flex>
+              />
+              logout
+            </Box>
           ) : (
             <Button
               w={"full"}
@@ -92,7 +86,7 @@ export default function WithSubnavigation({ auth }) {
               variant={"outline"}
               leftIcon={<FcGoogle />}
               onClick={() => {
-                signinWithGoogle();
+                signInWithGoogle();
               }}
             >
               <Center>
