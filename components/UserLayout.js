@@ -1,6 +1,6 @@
 import { useAuth } from "@/lib/auth";
 import { Grid } from "@chakra-ui/react";
-import Header from "./Header";
+import Header from "./Navbar";
 import Footer from "./Footer";
 
 const UserLayout = ({ children }) => {

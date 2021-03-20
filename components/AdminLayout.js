@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { AiFillTags, AiFillHome } from "react-icons/ai";
-import Header from "./Header";
+import Header from "./Navbar";
 
 const AdminLayout = ({ children }) => {
   return (

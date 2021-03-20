@@ -1,5 +1,5 @@
-import { useForm } from 'react-hook-form';
-import React from 'react';
+import { useForm } from "react-hook-form";
+import React from "react";
 import {
   FormErrorMessage,
   FormLabel,
@@ -14,22 +14,22 @@ import {
   InputGroup,
   Flex,
   Select,
-} from '@chakra-ui/react';
-import ImageUpload from './UploadFile';
+} from "@chakra-ui/react";
+import ImageUpload from "./UploadFile";
 
 const defaultValues = {
-  title: 'Kanchipuram semi silk saree',
+  title: "Kanchipuram semi silk saree",
   description:
-    'Grand kanchipuram semi silk sarees.. \n\nEmbossed design all over the sarees...\n\nJari design in between the embossed sarees ..\n\nGrand jari border...\n\nContrast pallu...\n\nContrast embossed design blouse...',
+    "Grand kanchipuram semi silk sarees.. \n\nEmbossed design all over the sarees...\n\nJari design in between the embossed sarees ..\n\nGrand jari border...\n\nContrast pallu...\n\nContrast embossed design blouse...",
   media: [],
-  price: '1250',
-  comparePrice: '1500',
-  discount: '',
-  sku: 'M3S1',
-  quantity: '10',
-  brand: 'Kanchipuram',
-  categories: 'featured, Silk ,new collection, featured',
-  keywords: 'Trending Saree,',
+  price: "1250",
+  comparePrice: "1500",
+  discount: "",
+  sku: "M3S1",
+  quantity: "10",
+  brand: "Kanchipuram",
+  categories: "featured, Silk ,new collection, featured",
+  keywords: "Trending Saree,",
 };
 
 const ProductForm = ({ onSave }) => {
@@ -42,7 +42,7 @@ const ProductForm = ({ onSave }) => {
     reset,
   } = useForm();
 
-  const onSubmit = values => {
+  const onSubmit = (values) => {
     onSave(values);
     reset();
   };
@@ -69,7 +69,7 @@ const ProductForm = ({ onSave }) => {
             />
           </FormControl>
           <Box border="1px solid" mb="4" borderColor="gray.200" p={4}>
-            <ImageUpload control={control} name={'media'} />
+            <ImageUpload control={control} name={"media"} />
           </Box>
           <FormControl
             mb="4"
@@ -80,7 +80,7 @@ const ProductForm = ({ onSave }) => {
           >
             <FormLabel>Price</FormLabel>
             <InputGroup>
-              <InputLeftElement pointerEvents="none" children={'₹'} />
+              <InputLeftElement pointerEvents="none" children={"₹"} />
               <Input
                 type="number"
                 placeholder="0.00"
@@ -97,7 +97,7 @@ const ProductForm = ({ onSave }) => {
           >
             <FormLabel>Compare price</FormLabel>
             <InputGroup>
-              <InputLeftElement pointerEvents="none" children={'₹'} />
+              <InputLeftElement pointerEvents="none" children={"₹"} />
               <Input
                 type="number"
                 placeholder="0.00"
