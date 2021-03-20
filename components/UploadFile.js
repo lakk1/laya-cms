@@ -11,7 +11,7 @@ import { BsUpload } from "react-icons/bs";
 import { Controller } from "react-hook-form";
 import Dropzone from "react-dropzone";
 
-function ImageUpload({ control, name }) {
+function ImageUpload({ control = {}, name = "media" }) {
   const handleOnchange = (data, value = [], callback) => {
     if (callback) {
       callback([...value, ...data]);
@@ -20,7 +20,7 @@ function ImageUpload({ control, name }) {
   return (
     <Controller
       control={control}
-      name={name}
+      name="media"
       render={({ onChange, onBlur, value }) => (
         <Grid>
           <Dropzone

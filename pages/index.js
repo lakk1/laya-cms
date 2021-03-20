@@ -22,7 +22,7 @@ export default function Home(props) {
           gap={{ base: 2, md: 4, lg: 16 }}
         >
           {productList.map((x) => (
-            <ProductCard isSold={![4, 6, 9].includes(x)} />
+            <ProductCard key={x} isSold={![4, 6, 9].includes(x)} />
           ))}
         </SimpleGrid>
       </Box>

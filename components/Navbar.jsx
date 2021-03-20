@@ -25,12 +25,9 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
-// import Image from "next/image";
-// import Logo from "../images/logo.png";
 
 export default function WithSubnavigation({ auth }) {
   const { isOpen, onToggle } = useDisclosure();
-  console.log({ auth });
   const { user, signinWithGoogle, signout } = auth;
 
   return (

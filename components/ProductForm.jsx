@@ -33,14 +33,19 @@ const defaultValues = {
 };
 
 const ProductForm = ({ onSave }) => {
-  const {
-    handleSubmit,
-    errors,
-    register,
-    formState,
-    control,
-    reset,
-  } = useForm();
+  const { handleSubmit, errors, register, formState, control, reset } = useForm(
+    {
+      mode: "onSubmit",
+      reValidateMode: "onChange",
+      defaultValues: {},
+      validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
+      validationResolver: undefined,
+      validationContext: undefined,
+      validateCriteriaMode: "firstErrorDetected",
+      submitFocusError: true,
+      nativeValidation: false, // Note: version 3 only
+    }
+  );
 
   const onSubmit = (values) => {
     onSave(values);
