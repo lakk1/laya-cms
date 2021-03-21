@@ -32,7 +32,7 @@ const AddProduct = () => {
     <AdminLayout>
       <Box p={4}>
         <Text fontSize="4xl">Add Product</Text>
-        <Box m={4}>
+        <Box m="4px auto" width="800px">
           <ProductForm onSave={handleSave} />
         </Box>
       </Box>

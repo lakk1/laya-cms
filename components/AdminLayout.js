@@ -1,3 +1,4 @@
+import { useAuth } from "@/lib/auth";
 import {
   Box,
   Flex,
@@ -7,11 +8,34 @@ import {
   VStack,
   Link,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
+import Router from "next/router";
+import { useEffect } from "react";
 import { AiFillTags, AiFillHome } from "react-icons/ai";
 import Header from "./Navbar";
 
 const AdminLayout = ({ children }) => {
+  const { user } = useAuth();
+  console.log({ user });
+  useEffect(() => {
+    if (!user || !user.role === "ADMIN") {
+      Router.push("/");
+    }
+  }, []);
+  if (!user || !user.role === "ADMIN") {
+    return (
+      <Center alignItems="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Center>
+    );
+  }
   return (
     <Flex dir="row">
       <Box width="240px" h="100vh" p="32px">

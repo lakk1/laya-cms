@@ -39,6 +39,7 @@ function ProductCard({ isSold = false, product }) {
       overflow="hidden"
       bg="white"
       m="16px auto"
+      cursor="pointer"
     >
       <Image
         src={imageURL}
