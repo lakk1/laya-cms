@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import ImageUpload from "./UploadFile";
 
-const defaultValues = {
+const defaultValues2 = {
   title: "Kanchipuram semi silk saree",
   description:
     "Grand kanchipuram semi silk sarees.. \n\nEmbossed design all over the sarees...\n\nJari design in between the embossed sarees ..\n\nGrand jari border...\n\nContrast pallu...\n\nContrast embossed design blouse...",
@@ -32,24 +32,16 @@ const defaultValues = {
   keywords: "Trending Saree,",
 };
 
-const ProductForm = ({ onSave }) => {
+const ProductForm = ({ onSave, defaultValues }) => {
   const { handleSubmit, errors, register, formState, control, reset } = useForm(
     {
-      mode: "onSubmit",
-      reValidateMode: "onChange",
-      defaultValues: {},
-      validationSchema: undefined, // Note: will be deprecated in the next major version with validationResolver
-      validationResolver: undefined,
-      validationContext: undefined,
-      validateCriteriaMode: "firstErrorDetected",
-      submitFocusError: true,
-      nativeValidation: false, // Note: version 3 only
+      defaultValues: defaultValues || {},
     }
   );
 
   const onSubmit = (values) => {
     onSave(values);
-    reset();
+    reset({});
   };
 
   return (

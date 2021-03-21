@@ -9,7 +9,7 @@ const ListCard = ({ product }) => {
       width="100%"
       cursor="pointer"
       onClick={() => {
-        Router.push(`/products/${product.id}`);
+        Router.push(`/admin/products/${product.id}`);
       }}
     >
       <Checkbox mr={4} />

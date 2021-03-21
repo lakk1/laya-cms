@@ -63,23 +63,25 @@ function ImageUpload({ control = {}, name = "media" }) {
                   border="1px solid #ccc"
                 >
                   <img
-                    src={URL.createObjectURL(f)}
+                    src={f.imageURL ? f.imageURL : URL.createObjectURL(f)}
                     width="100%"
                     height="auto"
                     alt=""
                   />
-                  <CloseButton
-                    size="sm"
-                    bg="red"
-                    color="white"
-                    rounded
-                    position="absolute"
-                    top="-4px"
-                    right="-4px"
-                    onClick={() => {
-                      onChange(value.filter((_, i) => i !== index));
-                    }}
-                  />
+                  {!f.imageURL && (
+                    <CloseButton
+                      size="sm"
+                      bg="red"
+                      color="white"
+                      rounded
+                      position="absolute"
+                      top="-4px"
+                      right="-4px"
+                      onClick={() => {
+                        onChange(value.filter((_, i) => i !== index));
+                      }}
+                    />
+                  )}
                 </Flex>
               ))}
           </HStack>
