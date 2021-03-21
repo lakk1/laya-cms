@@ -1,21 +1,30 @@
-import ProductCard from "@/components/ProductCard";
+import ProductView from "@/components/ProductView";
+import UserLayout from "@/components/UserLayout";
+import { useAuth } from "@/lib/auth";
 import { getProduct } from "@/lib/db";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const Post = () => {
-  const router = useRouter();
+const ProductPage = ({ slug }) => {
+  const auth = useAuth();
   const [product, setProduct] = useState({});
-  const { query } = router;
   useEffect(() => {
-    if (query.slug) {
-      getProduct(query.slug).then((item) => {
-        console.log(item);
+    if (slug) {
+      getProduct(slug).then((item) => {
         setProduct({ ...item });
       });
     }
   }, []);
-  return <ProductCard product={product} />;
+  return (
+    <UserLayout auth={auth}>
+      <ProductView product={product} />
+    </UserLayout>
+  );
 };
 
-export default Post;
+ProductPage.getInitialProps = async ({ query }) => {
+  const { slug } = query;
+  return { slug };
+};
+
+export default ProductPage;

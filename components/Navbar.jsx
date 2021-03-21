@@ -58,7 +58,9 @@ export default function WithSubnavigation({ auth }) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image src={"/images/logo.png"} width="120px" alt="laya" />
+          <Link href="/">
+            <Image src={"/images/logo.png"} width="120px" alt="laya" />
+          </Link>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>

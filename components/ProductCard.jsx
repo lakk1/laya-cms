@@ -2,19 +2,19 @@ import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
 import Router from "next/router";
 import { FaWhatsapp } from "react-icons/fa";
 
+const property = {
+  imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
+  imageAlt: "Rear view of modern home with pool",
+  beds: 3,
+  baths: 2,
+  title: "Modern home in city center in the heart of historic Los Angeles",
+  formattedPrice: "₹1,900",
+  discountPrice: "₹1,550",
+  discount: "20%",
+  reviewCount: 34,
+  rating: 4,
+};
 function ProductCard({ isSold = false, product }) {
-  const property = {
-    imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "₹1,900",
-    discountPrice: "₹1,550",
-    discount: "20%",
-    reviewCount: 34,
-    rating: 4,
-  };
   if (!product.title) {
     return (
       <Box
@@ -49,7 +49,7 @@ function ProductCard({ isSold = false, product }) {
       />
 
       <Box p="6">
-        {/*  <Box d="flex" alignItems="baseline">
+        <Box d="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
           </Badge>
@@ -61,9 +61,9 @@ function ProductCard({ isSold = false, product }) {
             textTransform="uppercase"
             ml="2"
           >
-            {property.beds} beds &bull; {property.baths} baths
+            {property.beds} colors
           </Box>
-        </Box> */}
+        </Box>
 
         <Box
           mt="1"
