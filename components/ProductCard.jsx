@@ -1,20 +1,35 @@
-import { StarIcon } from '@chakra-ui/icons';
-import { Badge, Box, Button, Image, Text } from '@chakra-ui/react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
+import Router from "next/router";
+import { FaWhatsapp } from "react-icons/fa";
 
-function ProductCard({ isSold = false }) {
+function ProductCard({ isSold = false, product }) {
   const property = {
-    imageUrl: 'https://source.unsplash.com/user/bulbul252/640x900',
-    imageAlt: 'Rear view of modern home with pool',
+    imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
+    imageAlt: "Rear view of modern home with pool",
     beds: 3,
     baths: 2,
-    title: 'Modern home in city center in the heart of historic Los Angeles',
-    formattedPrice: '₹1,900',
-    discountPrice: '₹1,550',
-    discount: '20%',
+    title: "Modern home in city center in the heart of historic Los Angeles",
+    formattedPrice: "₹1,900",
+    discountPrice: "₹1,550",
+    discount: "20%",
     reviewCount: 34,
     rating: 4,
   };
+  if (!product.title) {
+    return (
+      <Box
+        maxW="sm"
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        bg="white"
+        m="16px auto"
+      >
+        "No product"
+      </Box>
+    );
+  }
+  const imageURL = product?.media && product.media[0]?.imageURL;
 
   return (
     <Box
@@ -25,7 +40,13 @@ function ProductCard({ isSold = false }) {
       bg="white"
       m="16px auto"
     >
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+      <Image
+        src={imageURL}
+        alt={property.imageAlt}
+        onClick={() => {
+          Router.push(`/products/${product.id}`);
+        }}
+      />
 
       <Box p="6">
         {/*  <Box d="flex" alignItems="baseline">
@@ -64,7 +85,7 @@ function ProductCard({ isSold = false }) {
             ml={2}
             color="gray.600"
             fontSize="sm"
-            textDecoration={'line-through'}
+            textDecoration={"line-through"}
           >
             {property.discountPrice}
           </Text>
@@ -81,7 +102,7 @@ function ProductCard({ isSold = false }) {
             <Button
               bg="green.400"
               color="white"
-              _hover={{ bg: 'green.100', color: 'green.400' }}
+              _hover={{ bg: "green.100", color: "green.400" }}
               mt={4}
               isFullWidth
               fontSize="22px"
@@ -97,20 +118,6 @@ function ProductCard({ isSold = false }) {
             Sold out
           </Button>
         )}
-
-        {/* <Box d="flex" mt="2" alignItems="center">
-          {Array(5)
-            .fill('')
-            .map((_, i) => (
-              <StarIcon
-                key={i}
-                color={i < property.rating ? 'teal.500' : 'gray.300'}
-              />
-            ))}
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
-          </Box>
-        </Box> */}
       </Box>
     </Box>
   );

@@ -5,10 +5,20 @@ import { useAuth } from "@/lib/auth";
 import ProductCard from "@/components/ProductCard";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import Banner from "@/components/Banner";
+import { useEffect, useState } from "react";
+import { getProducts } from "@/lib/db";
 
 export default function Home(props) {
   const auth = useAuth();
-  const productList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    getProducts().then((res) => {
+      setLoading(false);
+      setProducts(res);
+    });
+  }, []);
   return (
     <UserLayout auth={auth}>
       <Head>
@@ -21,8 +31,12 @@ export default function Home(props) {
           templateColumns="repeat(auto-fill, minmax(320px, 1fr))"
           gap={{ base: 2, md: 4, lg: 16 }}
         >
-          {productList.map((x) => (
-            <ProductCard key={x} isSold={![4, 6, 9].includes(x)} />
+          {products.map((product, x) => (
+            <ProductCard
+              product={product}
+              key={x}
+              isSold={![4, 6, 9].includes(x)}
+            />
           ))}
         </SimpleGrid>
       </Box>
