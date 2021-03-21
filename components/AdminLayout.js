@@ -19,11 +19,11 @@ const AdminLayout = ({ children }) => {
   const { user } = useAuth();
   console.log({ user });
   useEffect(() => {
-    if (!user || !user.role === "ADMIN") {
+    if (user && user.role !== "ADMIN") {
       Router.push("/");
     }
-  }, []);
-  if (!user || !user.role === "ADMIN") {
+  }, [user]);
+  if (!user) {
     return (
       <Center alignItems="center">
         <Spinner
