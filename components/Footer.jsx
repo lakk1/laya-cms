@@ -41,7 +41,7 @@ export default function LargeWithLogoCentered() {
   return (
     <Box color={useColorModeValue("gray.700", "gray.200")}>
       <Container as={Stack} maxW={"6xl"} py={10}>
-        <Stack align={"flex-start"}>
+        <Stack align={"center"}>
           <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
             Follow Us
           </Text>

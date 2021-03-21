@@ -41,7 +41,7 @@ function ProductView({ isSold = false, product }) {
   const imageURL = product?.media && product.media[0]?.imageURL;
 
   return (
-    <Flex p={16}>
+    <Flex p={16} justifyContent="center">
       <Box maxW={600} p={4}>
         <Image src={imageURL} />
       </Box>

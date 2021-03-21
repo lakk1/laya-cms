@@ -25,6 +25,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
+import { RiShoppingBag2Line, RiShoppingBagLine } from "react-icons/ri";
 
 export default function WithSubnavigation({ auth }) {
   const { isOpen, onToggle } = useDisclosure();
@@ -99,6 +100,9 @@ export default function WithSubnavigation({ auth }) {
               </Center>
             </Button>
           )}
+          <Flex alignItems="center">
+            <RiShoppingBag2Line size={32} color="black" />
+          </Flex>
         </Stack>
       </Flex>
 
