@@ -1,8 +1,17 @@
 import { Checkbox, Flex, Box, Text, Image, Tag } from "@chakra-ui/react";
+import Router from "next/router";
 
 const ListCard = ({ product }) => {
   return (
-    <Flex p={4} borderBottom="1px solid #ccc" width="100%">
+    <Flex
+      p={4}
+      borderBottom="1px solid #ccc"
+      width="100%"
+      cursor="pointer"
+      onClick={() => {
+        Router.push(`/products/${product.id}`);
+      }}
+    >
       <Checkbox mr={4} />
       <Flex>
         <Flex alignItems="center" height="60px" width="40px" mx={4}>

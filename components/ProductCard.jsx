@@ -72,7 +72,7 @@ function ProductCard({ isSold = false, product }) {
           lineHeight="tight"
           isTruncated
         >
-          {property.title}
+          {product.title}
         </Box>
 
         <Box>
