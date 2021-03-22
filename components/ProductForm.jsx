@@ -65,8 +65,14 @@ const ProductForm = ({ onSave, defaultValues }) => {
               ref={register({ required: true })}
             />
           </FormControl>
-          <Box border="1px solid" mb="4" borderColor="gray.200" p={4}>
-            <ImageUpload control={control} name={"media"} />
+          <Box>
+            <Text fontSize="lg" mb={2}>
+              Media
+            </Text>
+
+            <Box border="1px solid" mb="4" borderColor="gray.200" p={4}>
+              <ImageUpload control={control} name={"media"} />
+            </Box>
           </Box>
           <FormControl
             mb="4"

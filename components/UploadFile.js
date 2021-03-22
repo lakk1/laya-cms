@@ -4,7 +4,8 @@ import {
   CloseButton,
   Flex,
   Grid,
-  HStack,
+  Image,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { BsUpload } from "react-icons/bs";
@@ -23,50 +24,23 @@ function ImageUpload({ control = {}, name = "media" }) {
       name="media"
       render={({ onChange, onBlur, value }) => (
         <Grid>
-          <Dropzone
-            onDrop={(obj) => handleOnchange(obj, value, onChange)}
-            accept="image/*"
-          >
-            {({ getRootProps, getInputProps }) => (
-              <Box
-                {...getRootProps({ className: "dropzone" })}
-                border="2px dashed #ccc"
-                p={8}
-                cursor="pointer"
-                maxH="200px"
-              >
-                <input {...getInputProps()} name={name} />
-                <Grid
-                  justifyItems="center"
-                  fontSize="bold"
-                  flexDir="row"
-                  margin="0 auto"
-                  gap={4}
-                >
-                  <BsUpload color="gray" size="32px" />
-                  <Button>Add file</Button>
-                  <Text>or drop files here</Text>
-                </Grid>
-              </Box>
-            )}
-          </Dropzone>
-          <HStack flexWrap="wrap">
+          <Flex flexWrap="wrap">
             {value &&
               value?.map((f, index) => (
                 <Flex
-                  alignItems="center"
                   key={index}
-                  width="100px"
-                  height="100px"
+                  width="120px"
+                  height="120px"
                   position="relative"
-                  m={4}
+                  m={2}
+                  p={2}
                   border="1px solid #ccc"
                 >
-                  <img
+                  <Image
                     src={f.imageURL ? f.imageURL : URL.createObjectURL(f)}
-                    width="100%"
-                    height="auto"
                     alt=""
+                    boxSize="100px"
+                    objectFit="contain"
                   />
 
                   <CloseButton
@@ -83,7 +57,36 @@ function ImageUpload({ control = {}, name = "media" }) {
                   />
                 </Flex>
               ))}
-          </HStack>
+            <Dropzone
+              onDrop={(obj) => handleOnchange(obj, value, onChange)}
+              accept="image/*"
+            >
+              {({ getRootProps, getInputProps }) => (
+                <Box
+                  {...getRootProps({ className: "dropzone" })}
+                  border="2px dashed #ccc"
+                  p={2}
+                  m={2}
+                  cursor="pointer"
+                  height="120px"
+                  width="120px"
+                >
+                  <input {...getInputProps()} name={name} />
+                  <Grid
+                    justifyItems="center"
+                    fontSize="bold"
+                    flexDir="row"
+                    margin="0 auto"
+                    gap={2}
+                  >
+                    <BsUpload color="gray" size="28px" />
+                    <Button>Add file</Button>
+                    {/* <Text>or drop files here</Text> */}
+                  </Grid>
+                </Box>
+              )}
+            </Dropzone>
+          </Flex>
         </Grid>
       )}
     ></Controller>
