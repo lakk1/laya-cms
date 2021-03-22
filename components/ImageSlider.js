@@ -1,16 +1,28 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, Tag } from "@chakra-ui/react";
 
 export default function ImageSlider({ media }) {
   console.log({ media });
   var settings = {
+    customPaging: (x) => {
+      return (
+        <Image
+          width="100%"
+          height="100%"
+          objectFit="cover"
+          src={media[x]["imageURL"]}
+        />
+      );
+    },
     dots: true,
     infinite: true,
     speed: 0,
+    dotsClass: "laya-slick-dots",
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
   };
   return (
     <Slider {...settings}>
@@ -18,8 +30,8 @@ export default function ImageSlider({ media }) {
         return (
           <Box>
             <Image
-              width="300px"
-              height="400px"
+              width="540px"
+              height="720px"
               key={item.id}
               src={item.imageURL}
             />
