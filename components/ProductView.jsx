@@ -44,9 +44,8 @@ function ProductView({ isSold = false, product }) {
     product,
   });
   return (
-    <Flex p={16} justifyContent="center">
-      <Box maxW={600} p={4}>
-        {/* <Image src={imageURL} /> */}
+    <Flex p={16} justifyContent="center" flexWrap="wrap">
+      <Box maxW={{ base: "800px", md: "800px", sm: "100%" }} p={4}>
         <ImageSlider media={product.media} />
       </Box>
       <Box p={4} maxW={600}>
