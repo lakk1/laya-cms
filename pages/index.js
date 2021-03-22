@@ -3,7 +3,7 @@ import UserLayout from "@/components/UserLayout";
 import Head from "next/head";
 import { useAuth } from "@/lib/auth";
 import ProductCard from "@/components/ProductCard";
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
 import Banner from "@/components/Banner";
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/db";
@@ -27,10 +27,7 @@ export default function Home(props) {
       </Head>
       <Banner />
       <Box padding={8}>
-        <SimpleGrid
-          templateColumns="repeat(auto-fill, minmax(320px, 1fr))"
-          gap={{ base: 2, md: 4, lg: 16 }}
-        >
+        <Flex flexWrap="wrap" justifyContent="center">
           {products.map((product, x) => (
             <ProductCard
               product={product}
@@ -38,7 +35,7 @@ export default function Home(props) {
               isSold={![4, 6, 9].includes(x)}
             />
           ))}
-        </SimpleGrid>
+        </Flex>
       </Box>
     </UserLayout>
   );

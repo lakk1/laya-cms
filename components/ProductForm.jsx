@@ -70,7 +70,7 @@ const ProductForm = ({ onSave, defaultValues }) => {
               Media
             </Text>
 
-            <Box border="1px solid" mb="4" borderColor="gray.200" p={4}>
+            <Box mb="4" p={4}>
               <ImageUpload control={control} name={"media"} />
             </Box>
           </Box>

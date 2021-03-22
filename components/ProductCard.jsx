@@ -38,7 +38,7 @@ function ProductCard({ isSold = false, product }) {
       borderRadius="lg"
       overflow="hidden"
       bg="white"
-      m="16px auto"
+      m="32px"
       cursor="pointer"
     >
       <Image
@@ -47,6 +47,9 @@ function ProductCard({ isSold = false, product }) {
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
+        maxW="280px"
+        // maxH="260px"
+        objectFit="cover"
       />
 
       <Box p="6">
