@@ -7,7 +7,7 @@ function PincodeInput(props) {
 
   return (
     <InputGroup size="md" maxW={240}>
-      <Input pr="4.5rem" placeholder="Enter password" />
+      <Input pr="4.5rem" placeholder="Pincode" />
       <InputRightElement width="4.5rem">
         <Button
           h="1.75rem"
@@ -16,7 +16,7 @@ function PincodeInput(props) {
           colorScheme="green"
           variant="unstyled"
         >
-          {show ? "Check" : "Change"}
+          check
         </Button>
       </InputRightElement>
     </InputGroup>

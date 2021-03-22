@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import PincodeInput from "./PincodeInput";
 import { RiShoppingBag3Line } from "react-icons/ri";
+import ImageSlider from "./ImageSlider";
 
 function ProductView({ isSold = false, product }) {
   const property = {
@@ -39,11 +40,14 @@ function ProductView({ isSold = false, product }) {
     );
   }
   const imageURL = product?.media && product.media[0]?.imageURL;
-
+  console.log({
+    product,
+  });
   return (
     <Flex p={16} justifyContent="center">
       <Box maxW={600} p={4}>
-        <Image src={imageURL} />
+        {/* <Image src={imageURL} /> */}
+        <ImageSlider media={product.media} />
       </Box>
       <Box p={4} maxW={600}>
         <Text fontWeight="semibold" size="md" color="gray.500">

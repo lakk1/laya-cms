@@ -15,6 +15,12 @@ import { useTable, useSortBy } from "react-table";
 import { useMemo } from "react";
 import Router from "next/router";
 
+const getImageURL = (media) => {
+  if (media && media?.length > 0) {
+    return media[0].imageURL;
+  }
+};
+
 function ProductsTable({ products }) {
   const data = useMemo(() => [...products], []);
 
@@ -23,6 +29,7 @@ function ProductsTable({ products }) {
       {
         Header: "Title",
         accessor: (data) => {
+          const imageURL = getImageURL(data?.media);
           return (
             <Flex
               cursor="pointer"
@@ -31,7 +38,7 @@ function ProductsTable({ products }) {
               }}
               _hover={{ bg: "pink.100" }}
             >
-              <Image width="40px" src={data.media[0].imageURL} />
+              {imageURL && <Image width="40px" src={imageURL} />}
               <Text ml={4} alignSelf="center">
                 {data.title}
               </Text>

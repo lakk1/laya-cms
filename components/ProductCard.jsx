@@ -47,8 +47,8 @@ function ProductCard({ isSold = false, product }) {
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
-        maxW="280px"
-        // maxH="260px"
+        width="300px"
+        height="400px"
         objectFit="cover"
       />
 
