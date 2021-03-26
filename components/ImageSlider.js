@@ -26,7 +26,7 @@ export default function ImageSlider({ media }) {
     <Slider {...settings}>
       {media.map((item, idx) => {
         return (
-          <Box>
+          <Box key={`slide-${idx}`}>
             <Image
               width="540px"
               height="720px"

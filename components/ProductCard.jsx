@@ -48,7 +48,7 @@ function ProductCard({ isSold = false, product }) {
           Router.push(`/products/${product.id}`);
         }}
         width="240px"
-        height="320px"
+        // height="320px"
         objectFit="cover"
       />
 

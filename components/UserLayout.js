@@ -1,14 +1,14 @@
-import { Grid } from "@chakra-ui/react";
+import { Grid, Box } from "@chakra-ui/react";
 import Header from "./Navbar";
 import Footer from "./Footer";
 
 const UserLayout = ({ children }) => {
   return (
-    <Grid>
+    <Box>
       <Header />
       <Grid>{children}</Grid>
       <Footer />
-    </Grid>
+    </Box>
   );
 };
 
