@@ -17,7 +17,6 @@ import Header from "./Navbar";
 
 const AdminLayout = ({ children }) => {
   const { user } = useAuth();
-  console.log({ user });
   useEffect(() => {
     if (user && user.role !== "ADMIN") {
       Router.push("/");

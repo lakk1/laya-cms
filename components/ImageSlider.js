@@ -1,10 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import { Box, Image, Tag } from "@chakra-ui/react";
 
 export default function ImageSlider({ media }) {
-  console.log({ media });
   var settings = {
     customPaging: (x) => {
       return (

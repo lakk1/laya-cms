@@ -34,12 +34,12 @@ function ProductCard({ isSold = false, product }) {
   return (
     <Box
       maxW="sm"
-      borderWidth="1px"
-      borderRadius="lg"
+      borderRadius="md"
       overflow="hidden"
       bg="white"
       m="32px"
       cursor="pointer"
+      _hover={{ boxShadow: "xl" }}
     >
       <Image
         src={imageURL}
@@ -47,19 +47,19 @@ function ProductCard({ isSold = false, product }) {
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
-        width="300px"
-        height="400px"
+        width="240px"
+        height="320px"
         objectFit="cover"
       />
 
-      <Box p="6">
+      <Box p="4">
         <Box d="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
           </Badge>
           <Box
             color="gray.500"
-            fontWeight="semibold"
+            // fontWeight="semibold"
             letterSpacing="wide"
             fontSize="xs"
             textTransform="uppercase"
@@ -71,7 +71,7 @@ function ProductCard({ isSold = false, product }) {
 
         <Box
           mt="1"
-          fontWeight="semibold"
+          // fontWeight="semibold"
           as="h4"
           lineHeight="tight"
           isTruncated
@@ -80,8 +80,8 @@ function ProductCard({ isSold = false, product }) {
         </Box>
 
         <Box>
-          <Text as="span" fontWeight="bold" color="red" fontSize="xl">
-            {property.formattedPrice}
+          <Text as="span" fontWeight="semibold" color="red" fontSize="xl">
+            ₹{product.price}
           </Text>
 
           <Text
@@ -91,13 +91,15 @@ function ProductCard({ isSold = false, product }) {
             fontSize="sm"
             textDecoration={"line-through"}
           >
-            {property.discountPrice}
+            {product.comparePrice}
           </Text>
-          <Text ml={1} as="span" fontSize="sm" color="red.400">
-            ({property.discount})
-          </Text>
+          {product.discount && (
+            <Text ml={1} as="span" fontSize="sm" color="red.400">
+              ({product.discount})
+            </Text>
+          )}
         </Box>
-        {isSold ? (
+        {/* {isSold ? (
           <a
             href="https://wa.me/p/4124022570943313/919550645083"
             target="_blank"
@@ -121,7 +123,7 @@ function ProductCard({ isSold = false, product }) {
           <Button mt={4} isFullWidth fontSize="22px" disabled>
             Sold out
           </Button>
-        )}
+        )} */}
       </Box>
     </Box>
   );

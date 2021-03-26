@@ -26,11 +26,18 @@ import {
 } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
 import { RiShoppingBag2Line, RiShoppingBagLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/lib/auth";
 
 export default function WithSubnavigation({ auth }) {
   const { isOpen, onToggle } = useDisclosure();
-  const { user, signinWithGoogle, signout } = auth;
-
+  const [cartCount, setCartCount] = useState(false);
+  const { user, signinWithGoogle, signout } = useAuth();
+  useEffect(() => {
+    if (user && user.cart) {
+      setCartCount(user?.cart.length);
+    }
+  }, [user?.cart]);
   return (
     <Box>
       <Flex
@@ -100,8 +107,26 @@ export default function WithSubnavigation({ auth }) {
               </Center>
             </Button>
           )}
-          <Flex alignItems="center">
-            <RiShoppingBag2Line size={32} color="black" />
+          <Flex alignItems="center" position="relative">
+            <Link href="/cart" position="relative">
+              <RiShoppingBag2Line size={32} color="black" />
+              {cartCount && (
+                <Flex
+                  justifyContent="center"
+                  borderRadius="90px"
+                  w="20px"
+                  h="20px"
+                  top="-4px"
+                  right="-8px"
+                  alignItems="center"
+                  position="absolute"
+                  bg="red"
+                  color="white"
+                >
+                  {cartCount}
+                </Flex>
+              )}
+            </Link>
           </Flex>
         </Stack>
       </Flex>

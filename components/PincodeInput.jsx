@@ -13,7 +13,7 @@ function PincodeInput(props) {
           h="1.75rem"
           size="sm"
           onClick={handleClick}
-          colorScheme="green"
+          color="green.400"
           variant="unstyled"
         >
           check

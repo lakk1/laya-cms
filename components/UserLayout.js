@@ -1,14 +1,11 @@
-import { useAuth } from "@/lib/auth";
 import { Grid } from "@chakra-ui/react";
 import Header from "./Navbar";
 import Footer from "./Footer";
 
 const UserLayout = ({ children }) => {
-  const auth = useAuth();
-
   return (
     <Grid>
-      <Header auth={auth} />
+      <Header />
       <Grid>{children}</Grid>
       <Footer />
     </Grid>

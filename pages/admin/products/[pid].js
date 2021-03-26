@@ -19,7 +19,6 @@ const EditProduct = ({ pid }) => {
   }, []);
 
   const handleSave = async ({ media, ...data }) => {
-    console.log({ media, data });
     const addedImages = media.filter((file) => file instanceof File);
     const oldImages = media.filter((file) => !(file instanceof File));
 
@@ -57,7 +56,6 @@ const EditProduct = ({ pid }) => {
     );
   }
   const isLoading = !product?.id;
-  console.log({ isLoading, product });
   return (
     <AdminLayout>
       <Box p={4}>

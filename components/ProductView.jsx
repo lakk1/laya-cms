@@ -4,27 +4,53 @@ import {
   Flex,
   Heading,
   HStack,
-  Image,
-  Input,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import PincodeInput from "./PincodeInput";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import ImageSlider from "./ImageSlider";
+import { useAuth } from "@/lib/auth";
+import { useEffect, useState } from "react";
+import Router from "next/router";
 
 function ProductView({ isSold = false, product }) {
-  const property = {
-    imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "₹1,900",
-    discountPrice: "₹1,550",
-    discount: "20%",
-    reviewCount: 34,
-    rating: 4,
+  const { user, addToCart } = useAuth();
+
+  const toast = useToast();
+  const [inCart, setIncart] = useState(false);
+  useEffect(() => {
+    if (user && user.cart) {
+      setIncart(user?.cart?.map((x) => x.pid).includes(product.id));
+    }
+  }, [user?.cart]);
+  const handleAddToCart = async () => {
+    if (user && inCart) {
+      Router.push("/cart");
+      // toast({
+      //   position: "top",
+      //   title: "Soon will take you to cart page",
+      // });
+      return;
+    }
+    if (user && user.uid) {
+      addToCart(user.uid, product.id).then((x) => {
+        setIncart(true);
+        toast({
+          position: "top-right",
+          title: "Added to cart",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+    } else {
+      toast({
+        title: "Please login",
+      });
+    }
   };
+
   if (!product.title) {
     return (
       <Box
@@ -39,18 +65,15 @@ function ProductView({ isSold = false, product }) {
       </Box>
     );
   }
-  const imageURL = product?.media && product.media[0]?.imageURL;
-  console.log({
-    product,
-  });
+
   return (
     <Flex p={16} justifyContent="center" flexWrap="wrap">
-      <Box maxW={{ base: "800px", md: "800px", sm: "100%" }} p={4}>
+      <Box maxW={800} p={4}>
         <ImageSlider media={product.media} />
       </Box>
       <Box p={4} maxW={600}>
         <Text fontWeight="semibold" size="md" color="gray.500">
-          CATEGORY
+          {product.brand}
         </Text>
         <Heading size="lg" mb={4}>
           {product.title}
@@ -60,7 +83,7 @@ function ProductView({ isSold = false, product }) {
         </Text>
         <Box mb={4}>
           <Text as="span" fontWeight="bold" color="red" fontSize="2xl">
-            {property.formattedPrice}
+            ₹{product.price}
           </Text>
           <Text
             as="span"
@@ -69,7 +92,7 @@ function ProductView({ isSold = false, product }) {
             fontSize="lg"
             textDecoration={"line-through"}
           >
-            {property.discountPrice}
+            {product.comparePrice}
           </Text>
           <Text
             ml={1}
@@ -78,17 +101,13 @@ function ProductView({ isSold = false, product }) {
             fontWeight="bold"
             color="red.400"
           >
-            ({property.discount})
+            {product.discount}
           </Text>
-          <Text fontSize="sm" fontWeight="semibold">
-            Inclusive of all taxes
+          <Text fontSize="sm" fontWeight="semibold" color="orange.600">
+            In stock
           </Text>
         </Box>
-        <Text my={4}>
-          Grand n rich Kanchi Soft Silk Sarees with allover goldenn thread jari
-          weaved... in Meena butta style... Rich weaved goldenn multi colour
-          jari buttis in border of the Saree......multi colour meenakari Pallu🥰
-        </Text>
+        <Text my={4}>{product.description}</Text>
 
         <HStack spacing={4} my={8}>
           <Button
@@ -97,8 +116,9 @@ function ProductView({ isSold = false, product }) {
             variant="solid"
             size="lg"
             width="320px"
+            onClick={handleAddToCart}
           >
-            Add to Bag
+            {inCart ? "open cart" : "Add to Bag"}
           </Button>
           <Button colorScheme="orange" variant="solid" size="lg" width="320px">
             Buy now
