@@ -26,7 +26,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner />
-      <Box padding={8}>
+      <Box p={{ base: 0, md: 8 }} minH="60vh">
         <Heading>Trending </Heading>
         <Flex flexWrap="wrap" justifyContent="center">
           {products.map((product, x) => (

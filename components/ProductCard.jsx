@@ -34,10 +34,10 @@ function ProductCard({ isSold = false, product }) {
   return (
     <Box
       maxW="sm"
-      borderRadius="md"
+      borderRadius="sm"
       overflow="hidden"
       bg="white"
-      m="32px"
+      m={{ base: "0", md: "12px" }}
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
     >
@@ -47,8 +47,8 @@ function ProductCard({ isSold = false, product }) {
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
-        width="240px"
-        // height="320px"
+        width={{ base: "100%", md: "auto" }}
+        height={{ base: "auto", md: "400px" }}
         objectFit="cover"
       />
 
