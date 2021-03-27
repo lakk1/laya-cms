@@ -1,31 +1,14 @@
+import { ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
 import {
-  Box,
   Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
   Icon,
+  IconButton,
   Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
+  Stack,
+  Text,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
-  Avatar,
-  Image,
-  Center,
-  SlideFade,
-  Slide,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
 import { NAV_ITEMS } from "./constants";
 
 const MobileNav = ({ onToggle }) => {

@@ -1,6 +1,6 @@
-import { Grid, Box } from "@chakra-ui/react";
-import Header from "./Navigation";
+import { Box, Grid } from "@chakra-ui/react";
 import Footer from "./Footer";
+import Header from "./Navigation";
 
 const UserLayout = ({ children }) => {
   return (

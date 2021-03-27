@@ -1,5 +1,5 @@
 import { useAuth } from "@/lib/auth";
-import { Box, Heading, Image, Flex, Text, Button } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 const CartView = () => {

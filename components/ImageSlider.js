@@ -1,5 +1,5 @@
+import { Box, Image } from "@chakra-ui/react";
 import Slider from "react-slick";
-import { Box, Image, Tag } from "@chakra-ui/react";
 
 export default function ImageSlider({ media }) {
   var settings = {

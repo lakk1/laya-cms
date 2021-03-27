@@ -1,6 +1,5 @@
-import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
+import { Badge, Box, Image, Text } from "@chakra-ui/react";
 import Router from "next/router";
-import { FaWhatsapp } from "react-icons/fa";
 
 function ProductCard({ isSold = false, product }) {
   if (!product.title) {

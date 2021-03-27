@@ -1,3 +1,4 @@
+import { useAuth } from "@/lib/auth";
 import {
   Box,
   Button,
@@ -7,12 +8,11 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import PincodeInput from "./PincodeInput";
+import Router from "next/router";
+import { useEffect, useState } from "react";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import ImageSlider from "./ImageSlider";
-import { useAuth } from "@/lib/auth";
-import { useEffect, useState } from "react";
-import Router from "next/router";
+import PincodeInput from "./PincodeInput";
 
 function ProductView({ isSold = false, product }) {
   const { user, addToCart } = useAuth();

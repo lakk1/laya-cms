@@ -1,19 +1,19 @@
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Image,
-  chakra,
-  Text,
-  Flex,
-} from "@chakra-ui/react";
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
-import { useTable, useSortBy } from "react-table";
-import { useMemo } from "react";
+import {
+  chakra,
+  Flex,
+  Image,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import Router from "next/router";
+import { useMemo } from "react";
+import { useSortBy, useTable } from "react-table";
 
 const getImageURL = (media) => {
   if (media && media?.length > 0) {

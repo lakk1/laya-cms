@@ -1,14 +1,13 @@
 import {
   Box,
-  Stack,
   Link,
   Popover,
-  PopoverTrigger,
   PopoverContent,
+  PopoverTrigger,
+  Stack,
 } from "@chakra-ui/react";
-
-import DesktopSubNav from "./DesktopSubNav";
 import { NAV_ITEMS } from "./constants";
+import DesktopSubNav from "./DesktopSubNav";
 
 const DesktopNav = () => {
   return (
