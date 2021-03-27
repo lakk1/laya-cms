@@ -26,7 +26,7 @@ export default function ImageSlider({ media }) {
     },
     dots: true,
     infinite: true,
-    speed: 0,
+    speed: 1000,
     dotsClass: "laya-slick-dots",
     slidesToShow: 1,
     slidesToScroll: 1,

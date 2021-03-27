@@ -27,7 +27,7 @@ function ProductCard({ isSold = false, product }) {
       m={{ base: "0", md: "12px" }}
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
-      maxW="300px"
+      maxW={{ base: "100%", md: "300px" }}
     >
       <Image
         src={imageURL}

@@ -68,7 +68,7 @@ function ProductView({ isSold = false, product }) {
 
   return (
     <Flex p={{ base: 0, md: 16 }} justifyContent="center" flexWrap="wrap">
-      <Box maxW={{ base: "100vw", md: 600 }} p={4}>
+      <Box maxW={{ base: "100vw", md: 600 }} p={{ base: 0, md: 4 }}>
         <ImageSlider media={product.media} />
       </Box>
       <Box p={4} maxW={{ base: "100vw", md: 600 }}>

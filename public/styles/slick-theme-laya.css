@@ -129,8 +129,7 @@
     flex-direction: column;
   }
   .laya-slick-dots {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
   }
   .laya-slick-dots li .thumbnail {
     display: none;
@@ -141,13 +140,18 @@
   .laya-slick-dots li .list-dot {
     display: block;
     background-color: #ccc;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border: 1px solid #ccc;
     border-radius: 99px;
+    margin: 0 4px;
   }
   .laya-slick-dots li.slick-active .list-dot {
     display: block;
     background-color: lightpink;
+    border-color: lightpink;
+  }
+  .laya-slick-dots .slick-active {
+    border: none;
   }
 }
