@@ -6,12 +6,20 @@ export default function ImageSlider({ media }) {
   var settings = {
     customPaging: (x) => {
       return (
-        <Image
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          src={media[x]["imageURL"]}
-        />
+        <Box>
+          <Image
+            // display={{ base: "none", md: "flex" }}
+            width="100%"
+            height="auto"
+            objectFit="cover"
+            src={media[x]["imageURL"]}
+          />
+          {/* <Box
+            size={10}
+            bg="#ccc"
+            display={{ base: "inline-block", md: "none" }}
+          ></Box> */}
+        </Box>
       );
     },
     dots: true,
@@ -21,6 +29,34 @@ export default function ImageSlider({ media }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    swipe: true,
+    mobileFirst: true,
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 3,
+    //       infinite: true,
+    //       dots: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       initialSlide: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //     },
+    //   },
+    // ],
   };
   return (
     <Slider {...settings}>
@@ -28,8 +64,10 @@ export default function ImageSlider({ media }) {
         return (
           <Box key={`slide-${idx}`}>
             <Image
-              width="540px"
-              height="720px"
+              width={{ base: "100%", md: "540px" }}
+              height="auto"
+              maxW="100vw"
+              maxH="100%"
               key={item.id}
               src={item.imageURL}
             />

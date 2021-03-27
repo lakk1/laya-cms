@@ -26,7 +26,21 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner />
-      <Box p={{ base: 0, md: 8 }} minH="60vh">
+      <Box p={{ base: 0, md: 8 }} minH="40vh">
+        <Heading my={4} display="flex" justifyContent="center" w="100%">
+          New Collection
+        </Heading>
+        <Flex flexWrap="wrap">
+          {products.map((product, x) => (
+            <ProductCard
+              product={product}
+              key={x}
+              isSold={![4, 6, 9].includes(x)}
+            />
+          ))}
+        </Flex>
+      </Box>
+      <Box p={{ base: 0, md: 8 }}>
         <Heading my={4} display="flex" justifyContent="center" w="100%">
           Trending{" "}
         </Heading>
