@@ -1,11 +1,14 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Drawer,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
   Flex,
   IconButton,
   Image,
   Link,
-  Slide,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -14,7 +17,7 @@ import MobileNav from "./MobileNav";
 import UserNav from "./UserNav";
 
 export default function WithSubnavigation({ auth }) {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
 
   return (
     <Box height={!isOpen ? "60px" : "100%"}>
@@ -51,9 +54,14 @@ export default function WithSubnavigation({ auth }) {
         <UserNav />
       </Flex>
 
-      <Slide in={isOpen} height="100%" direction="left" style={{ zIndex: 3 }}>
-        <MobileNav onToggle={onToggle} />
-      </Slide>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <MobileNav onToggle={onClose} />
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </Box>
   );
 }

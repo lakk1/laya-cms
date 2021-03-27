@@ -1,8 +1,8 @@
-import { ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
+  Collapse,
   Flex,
   Icon,
-  IconButton,
   Link,
   Stack,
   Text,
@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { NAV_ITEMS } from "./constants";
 
-const MobileNav = ({ onToggle }) => {
+const MobileNav = ({}) => {
   return (
     <Stack
       p={4}
@@ -20,16 +20,15 @@ const MobileNav = ({ onToggle }) => {
       zIndex={3}
       bg="white"
       h="100%"
-      w="80%"
     >
-      <Flex h="60px" justifyContent="flex-end" bg="white">
+      {/* <Flex h="60px" justifyContent="flex-end" bg="white">
         <IconButton
           onClick={onToggle}
           icon={<CloseIcon w={3} h={3} />}
           variant={"ghost"}
           aria-label={"Toggle Navigation"}
         />
-      </Flex>
+      </Flex> */}
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -64,23 +63,23 @@ const MobileNavItem = ({ label, children, href }) => {
         )}
       </Flex>
 
-      {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}> */}
-      <Stack
-        mt={2}
-        pl={4}
-        borderLeft={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.700")}
-        align={"start"}
-      >
-        {children &&
-          children.map((child) => (
-            <Link key={child.label} py={2} href={child.href}>
-              {child.label}
-            </Link>
-          ))}
-      </Stack>
-      {/* </Collapse> */}
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.700")}
+          align={"start"}
+        >
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} href={child.href}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
     </Stack>
   );
 };

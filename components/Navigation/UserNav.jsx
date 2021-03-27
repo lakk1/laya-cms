@@ -1,6 +1,18 @@
 import { useAuth } from "@/lib/auth";
-import { Button, Center, Flex, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Center,
+  Flex,
+  Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { FaRegUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { RiShoppingBag2Line } from "react-icons/ri";
 
@@ -17,15 +29,22 @@ const UserNav = () => {
     <Stack justify={"center"} direction={"row"} spacing={6} cursor="pointer">
       {user ? (
         <Flex align={"center"}>
-          <Text mr={8}>{user.name}</Text>
-          <Button
-            colorScheme="red"
-            onClick={() => {
-              signout();
-            }}
-          >
-            logout
-          </Button>
+          <Menu>
+            <MenuButton as={Button}>
+              <FaRegUser />
+            </MenuButton>
+            <MenuList>
+              <MenuItem href="/my/profile">My Account</MenuItem>
+              <MenuItem href="/cart">Cart</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  signout();
+                }}
+              >
+                Logout
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       ) : (
         <Button
@@ -38,7 +57,7 @@ const UserNav = () => {
           }}
         >
           <Center>
-            <Text>Sign in with Google</Text>
+            <Text>login</Text>
           </Center>
         </Button>
       )}

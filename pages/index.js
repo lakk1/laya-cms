@@ -26,7 +26,7 @@ export default function Home(props) {
       </Head>
       <Banner />
       <Box p={{ base: 0, md: 8 }} minH="40vh">
-        <Heading my={4} display="flex" justifyContent="center" w="100%">
+        <Heading py={4} display="flex" justifyContent="center" w="100%">
           New Collection
         </Heading>
         <Flex flexWrap="wrap">
@@ -40,8 +40,8 @@ export default function Home(props) {
         </Flex>
       </Box>
       <Box p={{ base: 0, md: 8 }}>
-        <Heading my={4} display="flex" justifyContent="center" w="100%">
-          Trending{" "}
+        <Heading py={4} display="flex" justifyContent="center" w="100%">
+          Trending
         </Heading>
         <Flex flexWrap="wrap">
           {products.map((product, x) => (

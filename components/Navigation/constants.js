@@ -16,18 +16,18 @@ export const NAV_ITEMS = [
   },
   {
     label: "Handpicked",
-    // children: [
-    //   {
-    //     label: "Job Board",
-    //     subLabel: "Find your dream design job",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Freelance Projects",
-    //     subLabel: "An exclusive list for contract work",
-    //     href: "#",
-    //   },
-    // ],
+    children: [
+      {
+        label: "Job Board",
+        subLabel: "Find your dream design job",
+        href: "#",
+      },
+      {
+        label: "Freelance Projects",
+        subLabel: "An exclusive list for contract work",
+        href: "#",
+      },
+    ],
   },
   {
     label: "Lehengas",

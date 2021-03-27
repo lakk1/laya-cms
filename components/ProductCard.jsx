@@ -35,7 +35,6 @@ function ProductCard({ isSold = false, product }) {
           Router.push(`/products/${product.id}`);
         }}
         width={{ base: "100%", md: "auto" }}
-        height={{ base: "auto", md: "400px" }}
         objectFit="cover"
       />
 
@@ -56,17 +55,10 @@ function ProductCard({ isSold = false, product }) {
           </Box>
         </Box>
 
-        <Box
-          mt="1"
-          // fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {product.title}
-        </Box>
-
         <Box>
+          <Box mt="1" maxW="100%">
+            {product.title}
+          </Box>
           <Text as="span" fontWeight="semibold" color="red" fontSize="xl">
             ₹{product.price}
           </Text>
