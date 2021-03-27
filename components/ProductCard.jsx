@@ -2,18 +2,6 @@ import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
 import Router from "next/router";
 import { FaWhatsapp } from "react-icons/fa";
 
-const property = {
-  imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
-  imageAlt: "Rear view of modern home with pool",
-  beds: 3,
-  baths: 2,
-  title: "Modern home in city center in the heart of historic Los Angeles",
-  formattedPrice: "₹1,900",
-  discountPrice: "₹1,550",
-  discount: "20%",
-  reviewCount: 34,
-  rating: 4,
-};
 function ProductCard({ isSold = false, product }) {
   if (!product.title) {
     return (
@@ -39,10 +27,11 @@ function ProductCard({ isSold = false, product }) {
       m={{ base: "0", md: "12px" }}
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
+      maxW="300px"
     >
       <Image
         src={imageURL}
-        alt={property.imageAlt}
+        alt=""
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
@@ -64,7 +53,7 @@ function ProductCard({ isSold = false, product }) {
             textTransform="uppercase"
             ml="2"
           >
-            {property.beds} colors
+            4 colors
           </Box>
         </Box>
 

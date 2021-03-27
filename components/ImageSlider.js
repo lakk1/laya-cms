@@ -1,5 +1,4 @@
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import { Box, Image, Tag } from "@chakra-ui/react";
 
 export default function ImageSlider({ media }) {
@@ -8,17 +7,20 @@ export default function ImageSlider({ media }) {
       return (
         <Box>
           <Image
+            className="thumbnail"
             // display={{ base: "none", md: "flex" }}
-            width="100%"
+            width="160px"
             height="auto"
             objectFit="cover"
             src={media[x]["imageURL"]}
           />
-          {/* <Box
+          <Box
+            className="list-dot"
             size={10}
             bg="#ccc"
-            display={{ base: "inline-block", md: "none" }}
-          ></Box> */}
+            rounded
+            // display={{ base: "inline-block", md: "none" }}
+          ></Box>
         </Box>
       );
     },
