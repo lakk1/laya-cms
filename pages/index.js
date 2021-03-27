@@ -3,7 +3,7 @@ import UserLayout from "@/components/UserLayout";
 import Head from "next/head";
 import { useAuth } from "@/lib/auth";
 import ProductCard from "@/components/ProductCard";
-import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
 import Banner from "@/components/Banner";
 import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/db";
@@ -27,6 +27,7 @@ export default function Home(props) {
       </Head>
       <Banner />
       <Box padding={8}>
+        <Heading>Trending </Heading>
         <Flex flexWrap="wrap" justifyContent="center">
           {products.map((product, x) => (
             <ProductCard

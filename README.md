@@ -6,3 +6,7 @@
     orders
     adresses
     cards
+
+FEATURED,NEW,TRENDING,PATTU,BANARS,GADWAL,UPPADA,SILK,COTTON
+
+

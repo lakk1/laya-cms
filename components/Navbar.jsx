@@ -56,11 +56,7 @@ export default function WithSubnavigation({ auth }) {
         width="100%"
         zIndex={2}
       >
-        <Flex
-          // flex={{ base: 1, md: "auto" }}
-          // ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
+        <Flex display={{ base: "flex", md: "none" }}>
           <IconButton
             onClick={onToggle}
             icon={<HamburgerIcon w={5} h={5} />}
