@@ -1,11 +1,11 @@
-import { Box, Center, Spinner, Text, useToast } from "@chakra-ui/react";
-import Router from "next/router";
-import _kebabCase from "lodash/kebabCase";
-import { uploadImages } from "@/lib/storage";
-import { createProduct, getProduct } from "@/lib/db";
-import ProductForm from "@/components/ProductForm";
 import AdminLayout from "@/components/AdminLayout";
-import { useState, useEffect } from "react";
+import ProductForm from "@/components/ProductForm";
+import { createProduct, getProduct } from "@/lib/db";
+import { uploadImages } from "@/lib/storage";
+import { Box, Center, Spinner, Text, useToast } from "@chakra-ui/react";
+import _kebabCase from "lodash/kebabCase";
+import Router from "next/router";
+import { useEffect, useState } from "react";
 
 const EditProduct = ({ pid }) => {
   const toast = useToast();

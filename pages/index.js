@@ -1,12 +1,11 @@
-import AuthContainer from "@/components/AuthContainer";
-import UserLayout from "@/components/UserLayout";
-import Head from "next/head";
-import { useAuth } from "@/lib/auth";
-import ProductCard from "@/components/ProductCard";
-import { Box, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
 import Banner from "@/components/Banner";
-import { useEffect, useState } from "react";
+import ProductCard from "@/components/ProductCard";
+import UserLayout from "@/components/UserLayout";
+import { useAuth } from "@/lib/auth";
 import { getProducts } from "@/lib/db";
+import { Box, Flex, Heading } from "@chakra-ui/react";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 
 export default function Home(props) {
   const auth = useAuth();

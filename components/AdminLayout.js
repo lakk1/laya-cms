@@ -13,7 +13,7 @@ import {
 import Router from "next/router";
 import { useEffect } from "react";
 import { AiFillTags, AiFillHome } from "react-icons/ai";
-import Header from "./Navbar";
+import Header from "./Navigation";
 
 const AdminLayout = ({ children }) => {
   const { user } = useAuth();

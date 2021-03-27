@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import ProfileView from "@/components/ProfileView";
 import UserLayout from "@/components/UserLayout";
 import { Box } from "@chakra-ui/react";
 

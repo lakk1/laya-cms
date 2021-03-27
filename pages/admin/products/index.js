@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-import { useCollection } from "react-firebase-hooks/firestore";
 import AdminLayout from "@/components/AdminLayout";
-import { getProducts, productsRef } from "@/lib/db";
-import { Box, Text, Flex } from "@chakra-ui/react";
-import ListCard from "@/components/ListCard";
 import ProductsTable from "@/components/ProductsTable";
+import { getProducts } from "@/lib/db";
+import { Box, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 const Products = () => {
   const [products, setProducts] = useState([]);

@@ -2,7 +2,6 @@ import ProductView from "@/components/ProductView";
 import UserLayout from "@/components/UserLayout";
 import { useAuth } from "@/lib/auth";
 import { getProduct } from "@/lib/db";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const ProductPage = ({ slug }) => {
