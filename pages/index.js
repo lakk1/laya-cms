@@ -27,8 +27,10 @@ export default function Home(props) {
       </Head>
       <Banner />
       <Box p={{ base: 0, md: 8 }} minH="60vh">
-        <Heading>Trending </Heading>
-        <Flex flexWrap="wrap" justifyContent="center">
+        <Heading my={4} display="flex" justifyContent="center" w="100%">
+          Trending{" "}
+        </Heading>
+        <Flex flexWrap="wrap">
           {products.map((product, x) => (
             <ProductCard
               product={product}

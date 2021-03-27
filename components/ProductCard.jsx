@@ -33,7 +33,6 @@ function ProductCard({ isSold = false, product }) {
 
   return (
     <Box
-      maxW="sm"
       borderRadius="sm"
       overflow="hidden"
       bg="white"
