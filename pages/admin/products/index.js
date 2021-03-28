@@ -23,6 +23,7 @@ const Products = () => {
 
         <Box>
           {loading && "loading...."}
+          <Text>Total products : {products && products.length}</Text>
           {products && products.length > 0 && (
             <Box my={16}>
               <ProductsTable products={products} />
