@@ -1,16 +1,7 @@
-import {
-  Box,
-  Button,
-  CloseButton,
-  Flex,
-  Grid,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { BsUpload } from "react-icons/bs";
-import { Controller } from "react-hook-form";
+import { Box, Button, CloseButton, Flex, Grid, Image } from "@chakra-ui/react";
 import Dropzone from "react-dropzone";
+import { Controller } from "react-hook-form";
+import { BsUpload } from "react-icons/bs";
 
 function ImageUpload({ control = {}, name = "media" }) {
   const handleOnchange = (data, value = [], callback) => {

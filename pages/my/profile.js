@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProfileView from "@/components/ProfileView";
 import UserLayout from "@/components/UserLayout";
 import { useAuth } from "@/lib/auth";

@@ -1,19 +1,16 @@
 import { useAuth } from "@/lib/auth";
 import {
   Box,
-  Flex,
-  Grid,
-  Center,
-  Text,
-  VStack,
-  Link,
   Button,
+  Center,
+  Flex,
+  Link,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 import Router from "next/router";
 import { useEffect } from "react";
-import { AiFillTags, AiFillHome } from "react-icons/ai";
-import Header from "./Navbar";
+import { AiFillHome, AiFillTags } from "react-icons/ai";
 
 const AdminLayout = ({ children }) => {
   const { user } = useAuth();

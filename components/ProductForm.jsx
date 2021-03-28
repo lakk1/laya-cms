@@ -1,20 +1,18 @@
-import { useForm } from "react-hook-form";
-import React from "react";
 import {
-  FormErrorMessage,
-  FormLabel,
-  FormControl,
-  Input,
-  Button,
   Box,
+  Button,
+  FormControl,
   FormHelperText,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Select,
   Text,
   Textarea,
-  InputLeftElement,
-  InputGroup,
-  Flex,
-  Select,
 } from "@chakra-ui/react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import ImageUpload from "./UploadFile";
 
 const defaultValues2 = {

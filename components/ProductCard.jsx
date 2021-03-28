@@ -1,19 +1,6 @@
-import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
+import { Badge, Box, Image, Text } from "@chakra-ui/react";
 import Router from "next/router";
-import { FaWhatsapp } from "react-icons/fa";
 
-const property = {
-  imageUrl: "https://source.unsplash.com/user/bulbul252/640x900",
-  imageAlt: "Rear view of modern home with pool",
-  beds: 3,
-  baths: 2,
-  title: "Modern home in city center in the heart of historic Los Angeles",
-  formattedPrice: "₹1,900",
-  discountPrice: "₹1,550",
-  discount: "20%",
-  reviewCount: 34,
-  rating: 4,
-};
 function ProductCard({ isSold = false, product }) {
   if (!product.title) {
     return (
@@ -39,15 +26,15 @@ function ProductCard({ isSold = false, product }) {
       m={{ base: "0", md: "12px" }}
       cursor="pointer"
       _hover={{ boxShadow: "xl" }}
+      maxW={{ base: "100%", md: "300px" }}
     >
       <Image
         src={imageURL}
-        alt={property.imageAlt}
+        alt=""
         onClick={() => {
           Router.push(`/products/${product.id}`);
         }}
         width={{ base: "100%", md: "auto" }}
-        height={{ base: "auto", md: "400px" }}
         objectFit="cover"
       />
 
@@ -64,21 +51,14 @@ function ProductCard({ isSold = false, product }) {
             textTransform="uppercase"
             ml="2"
           >
-            {property.beds} colors
+            4 colors
           </Box>
         </Box>
 
-        <Box
-          mt="1"
-          // fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {product.title}
-        </Box>
-
         <Box>
+          <Box mt="1" maxW="100%">
+            {product.title}
+          </Box>
           <Text as="span" fontWeight="semibold" color="red" fontSize="xl">
             ₹{product.price}
           </Text>

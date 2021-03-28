@@ -1,6 +1,6 @@
-import { Heading, Box, Center, Container, Text } from "@chakra-ui/react";
 
 import {
+   Heading, Box, Center, Container, Text,
   Table,
   Thead,
   Tbody,

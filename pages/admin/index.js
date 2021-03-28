@@ -1,5 +1,5 @@
-import { Grid, Text } from "@chakra-ui/react";
 import AdminLayout from "@/components/AdminLayout";
+import { Grid, Text } from "@chakra-ui/react";
 
 const Admin = ({ res }) => {
   return (

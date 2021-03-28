@@ -1,3 +1,4 @@
+import { useAuth } from "@/lib/auth";
 import {
   Box,
   Button,
@@ -7,12 +8,11 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import PincodeInput from "./PincodeInput";
+import Router from "next/router";
+import { useEffect, useState } from "react";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import ImageSlider from "./ImageSlider";
-import { useAuth } from "@/lib/auth";
-import { useEffect, useState } from "react";
-import Router from "next/router";
+import PincodeInput from "./PincodeInput";
 
 function ProductView({ isSold = false, product }) {
   const { user, addToCart } = useAuth();
@@ -67,11 +67,11 @@ function ProductView({ isSold = false, product }) {
   }
 
   return (
-    <Flex p={16} justifyContent="center" flexWrap="wrap">
-      <Box maxW={800} p={4}>
+    <Flex p={{ base: 0, md: 16 }} justifyContent="center" flexWrap="wrap">
+      <Box maxW={{ base: "100vw", md: 600 }} p={{ base: 0, md: 4 }}>
         <ImageSlider media={product.media} />
       </Box>
-      <Box p={4} maxW={600}>
+      <Box p={4} maxW={{ base: "100vw", md: 600 }}>
         <Text fontWeight="semibold" size="md" color="gray.500">
           {product.brand}
         </Text>

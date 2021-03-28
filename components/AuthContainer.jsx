@@ -1,4 +1,4 @@
-import { Button, Box, Flex, Link } from "@chakra-ui/react";
+import { Box, Button, Flex, Link } from "@chakra-ui/react";
 
 const AuthContainer = ({ auth = {} }) => {
   const user = auth.user;
