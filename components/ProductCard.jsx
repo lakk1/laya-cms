@@ -32,9 +32,10 @@ function ProductCard({ isSold = false, product }) {
         src={imageURL}
         alt=""
         onClick={() => {
-          Router.push(`/products/${product.id}`);
+          Router.push(`/products/${product.slug}`);
         }}
-        width={{ base: "100%", md: "auto" }}
+        width={{ base: "100%", md: "300px" }}
+        width={{ base: "auto", md: "400px" }}
         objectFit="cover"
       />
 

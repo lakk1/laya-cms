@@ -1,9 +1,6 @@
 import ProductView from "@/components/ProductView";
 import UserLayout from "@/components/UserLayout";
-import { useAuth } from "@/lib/auth";
-import { getProduct } from "@/lib/db";
-import { useEffect, useState } from "react";
-import { FaCommentsDollar } from "react-icons/fa";
+import { getProductBySlug } from "@/lib/db";
 
 const ProductPage = ({ product }) => {
   return (
@@ -14,11 +11,19 @@ const ProductPage = ({ product }) => {
 export async function getStaticPaths() {
   return {
     paths: [
-      // Object variant:
-      "/products/2XrcsOipKBYKykCJG8XW",
-      "/products/mYaOF0KlyW1oVn8LrECc",
-      "/products/ElFsXs0hSPwTEfYpqddW",
-      { params: { slug: "ElFsXs0hSPwTEfYpqddW" } },
+      "/products/art-silk-printed",
+      "/products/vichitra-silk-2",
+      "/products/sea-green-white-cotton-blend-printed-saree",
+      "/products/banaras-soft-silk",
+      "/products/art-silk-printed",
+      "/products/orange-printed-chiffon-saree",
+      "/products/art-silk-printed",
+      "/products/navy-blue-gold-toned-silk-blend-woven-design-banarasi-saree",
+      "/products/white-pink-organza-printed-saree",
+      "/products/navy-blue-red-linen-blend-printed-saree",
+      "/products/white-embroidered-linen-blend-saree",
+      "/products/kanchipuram-silk",
+      { params: { slug: "art-silk-printed" } },
     ],
     fallback: true,
   };
@@ -27,7 +32,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const data = await getProduct(slug);
+  const data = await getProductBySlug(slug);
 
   if (!data) {
     return {

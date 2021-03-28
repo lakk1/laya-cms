@@ -6,6 +6,8 @@ import { Box, Flex, Heading } from "@chakra-ui/react";
 import Head from "next/head";
 
 function Home({ products }) {
+  const slugs = products.map((p) => p.slug);
+  console.log({ slugs });
   return (
     <UserLayout>
       <Head>

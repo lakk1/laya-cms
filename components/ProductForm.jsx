@@ -14,6 +14,7 @@ import {
 import React from "react";
 import { useForm } from "react-hook-form";
 import ImageUpload from "./UploadFile";
+import _kebabCase from "lodash/kebabCase";
 
 const defaultValues2 = {
   title: "Kanchipuram semi silk saree",
@@ -31,11 +32,17 @@ const defaultValues2 = {
 };
 
 const ProductForm = ({ onSave, defaultValues }) => {
-  const { handleSubmit, errors, register, formState, control, reset } = useForm(
-    {
-      defaultValues: defaultValues || {},
-    }
-  );
+  const {
+    handleSubmit,
+    errors,
+    register,
+    formState,
+    control,
+    reset,
+    getValues,
+  } = useForm({
+    defaultValues: defaultValues || {},
+  });
 
   const onSubmit = (values) => {
     onSave(values);
@@ -55,6 +62,9 @@ const ProductForm = ({ onSave, defaultValues }) => {
               isInvalid={errors.title}
             />
           </FormControl>
+          <Box pb={4}>
+            Slug : {defaultValues.slug || _kebabCase(getValues("title"))}
+          </Box>
           <FormControl mb="4">
             <FormLabel>Description</FormLabel>
             <Textarea
