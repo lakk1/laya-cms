@@ -1,11 +1,12 @@
+import CartLayout from "@/components/CartLayout";
 import CartView from "@/components/CartView";
 import UserLayout from "@/components/UserLayout";
 
 const CartPage = () => {
   return (
-    <UserLayout>
+    <CartLayout>
       <CartView />
-    </UserLayout>
+    </CartLayout>
   );
 };
 
