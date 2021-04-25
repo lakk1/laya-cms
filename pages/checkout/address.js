@@ -1,11 +1,10 @@
 import CartLayout from "@/components/CartLayout";
-import CartView from "@/components/CartView";
-import UserLayout from "@/components/UserLayout";
+import AddressView from "@/components/AddressView";
 
 const CartPage = () => {
   return (
     <CartLayout>
-      <CartView />
+      <AddressView />
     </CartLayout>
   );
 };

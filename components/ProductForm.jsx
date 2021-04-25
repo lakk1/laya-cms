@@ -63,7 +63,7 @@ const ProductForm = ({ onSave, defaultValues }) => {
             />
           </FormControl>
           <Box pb={4}>
-            Slug : {defaultValues.slug || _kebabCase(getValues("title"))}
+            Slug : {defaultValues?.slug || _kebabCase(getValues("title"))}
           </Box>
           <FormControl mb="4">
             <FormLabel>Description</FormLabel>

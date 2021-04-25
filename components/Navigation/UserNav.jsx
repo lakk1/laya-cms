@@ -35,7 +35,7 @@ const UserNav = () => {
             </MenuButton>
             <MenuList>
               <MenuItem href="/my/profile">My Account</MenuItem>
-              <MenuItem href="/cart">Cart</MenuItem>
+              <MenuItem href="/checkout/cart">Cart</MenuItem>
               <MenuItem
                 onClick={() => {
                   signout();
@@ -62,7 +62,7 @@ const UserNav = () => {
         </Button>
       )}
       <Flex alignItems="center" position="relative">
-        <Link href="/cart" position="relative">
+        <Link href="/checkout/cart" position="relative">
           <RiShoppingBag2Line size={32} color="black" />
           {cartCount && (
             <Flex

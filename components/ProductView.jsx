@@ -26,7 +26,7 @@ function ProductView({ isSold = false, product }) {
   }, [user?.cart]);
   const handleAddToCart = async () => {
     if (user && inCart) {
-      Router.push("/cart");
+      Router.push("/checkout/cart");
       // toast({
       //   position: "top",
       //   title: "Soon will take you to cart page",
@@ -34,7 +34,7 @@ function ProductView({ isSold = false, product }) {
       return;
     }
     if (user && user.uid) {
-      addToCart(user.uid, product.id).then((x) => {
+      addToCart(product.id).then((x) => {
         setIncart(true);
         toast({
           position: "top-right",

@@ -14,12 +14,38 @@ import { cartItemsData } from "@/components/Navigation/constants";
 import { AddIcon, DeleteIcon, MinusIcon } from "@chakra-ui/icons";
 // const cartItems = cartItemsData;
 
+export const PriceBox = () => {
+  return (
+    <Box bg="pink.100" p={4} borderRadius="md" width="100%">
+      <Flex my={2} justifyContent="space-between">
+        <Text>Price</Text>
+        <Text>₹1000</Text>
+      </Flex>
+      <Flex my={2} justifyContent="space-between">
+        <Text>Discount</Text>
+        <Text>-₹500</Text>
+      </Flex>
+      <Flex my={4} justifyContent="space-between">
+        <Text>Total Price</Text>
+        <Text>₹500</Text>
+      </Flex>
+      <Button
+        colorScheme="pink"
+        width="100%"
+        alignSelf="flex-end"
+        borderRadius="sm"
+      >
+        PLACE ORDER
+      </Button>
+    </Box>
+  );
+};
 const CartView = () => {
-  const { user, getUserCart } = useAuth();
-  const [cartItems, setCartItems] = useState(cartItemsData);
-  // useEffect(async () => {
-  //   setCartItems(await getUserCart());
-  // }, [user]);
+  const { user, getUserCart, removeFromCart } = useAuth();
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(async () => {
+    setCartItems(await getUserCart());
+  }, [user, user?.cart]);
 
   if (!cartItems || cartItems.length < 1) {
     return <Box p={32}>No Items in the cart</Box>;
@@ -27,6 +53,9 @@ const CartView = () => {
   const getThumbnail = (product) =>
     product?.media && product.media[0]?.imageURL;
 
+  const removeCartItem = (id) => {
+    console.log({ id });
+  };
   return (
     <Flex
       p={{ base: 2, md: 12 }}
@@ -38,29 +67,14 @@ const CartView = () => {
         flexDir="column"
         borderStyle="solid"
         borderColor="gray.200"
-        maxW="800px"
       >
-        <Flex
-          borderRadius="md"
-          p={4}
-          border={1}
-          borderStyle="solid"
-          borderColor="gray.200"
-          justifyContent="center"
-          alignItems="center"
-          my={4}
-        >
-          <Button variant="outline" colorScheme="pink">
-            Add Address
-          </Button>
-        </Flex>
         <Text fontWeight="semibold">Cart Items (4)</Text>
         <Flex flexDir="column" flexWrap="wrap">
           {cartItems.map((item) => (
             <Flex
               borderRadius="md"
               key={item.id}
-              width="100%"
+              width={{ base: "100%", md: "720px" }}
               p={4}
               border={1}
               borderStyle="solid"
@@ -82,7 +96,7 @@ const CartView = () => {
                       Sold by : laya creations
                     </Text>
                   </Box>
-                  <Flex flexWrap="wrap">
+                  <Flex flexWrap="wrap" alignItems="center">
                     <ButtonGroup size="sm" isAttached variant="outline">
                       <IconButton
                         aria-label="Add to friends"
@@ -100,13 +114,16 @@ const CartView = () => {
                       colorScheme="black"
                       variant="outline"
                       size="sm"
+                      onClick={() => {
+                        removeFromCart(item);
+                      }}
                     >
                       Remove
                     </Button>
                   </Flex>
                 </Flex>
               </Flex>
-              <Text pl="8" fontSize="12px">
+              <Text pl="8" fontSize="16px">
                 ₹{item.price}
               </Text>
             </Flex>
@@ -114,28 +131,7 @@ const CartView = () => {
         </Flex>
       </Flex>
       <Flex width={{ base: "100%", md: "300px" }} my={8} flexDir="column">
-        <Box bg="pink.100" p={4} borderRadius="md" width="100%">
-          <Flex my={2} justifyContent="space-between">
-            <Text>Price</Text>
-            <Text>₹1000</Text>
-          </Flex>
-          <Flex my={2} justifyContent="space-between">
-            <Text>Discount</Text>
-            <Text>-₹500</Text>
-          </Flex>
-          <Flex my={4} justifyContent="space-between">
-            <Text>Total Price</Text>
-            <Text>₹500</Text>
-          </Flex>
-          <Button
-            colorScheme="pink"
-            width="100%"
-            alignSelf="flex-end"
-            borderRadius="sm"
-          >
-            PLACE ORDER
-          </Button>
-        </Box>
+        <PriceBox />
       </Flex>
     </Flex>
   );

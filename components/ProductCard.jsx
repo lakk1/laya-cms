@@ -1,7 +1,9 @@
-import { Badge, Box, Image, Text } from "@chakra-ui/react";
+import { useAuth } from "@/lib/auth";
+import { Badge, Box, Button, Image, Text } from "@chakra-ui/react";
 import Router from "next/router";
 
 function ProductCard({ isSold = false, product }) {
+  const { addToCart } = useAuth();
   if (!product.title) {
     return (
       <Box
@@ -32,7 +34,7 @@ function ProductCard({ isSold = false, product }) {
         src={imageURL}
         alt=""
         onClick={() => {
-          Router.push(`/products/${product.slug}`);
+          Router.push(`/products/${product?.slug}`);
         }}
         width={{ base: "100%", md: "300px" }}
         width={{ base: "auto", md: "400px" }}
@@ -79,31 +81,28 @@ function ProductCard({ isSold = false, product }) {
             </Text>
           )}
         </Box>
-        {/* {isSold ? (
-          <a
-            href="https://wa.me/p/4124022570943313/919550645083"
-            target="_blank"
-            rel="noreferrer"
+        {isSold ? (
+          <Button
+            bg="green.400"
+            color="white"
+            _hover={{ bg: "green.100", color: "green.400" }}
+            mt={4}
+            isFullWidth
+            fontSize="22px"
+            onClick={() => {
+              addToCart(product.id);
+            }}
           >
-            <Button
-              bg="green.400"
-              color="white"
-              _hover={{ bg: "green.100", color: "green.400" }}
-              mt={4}
-              isFullWidth
-              fontSize="22px"
-            >
-              <Box mr={4}>
+            {/* <Box mr={4}>
                 <FaWhatsapp />
-              </Box>
-              <Text>BUY</Text>
-            </Button>
-          </a>
+              </Box> */}
+            <Text>ADD TO CART</Text>
+          </Button>
         ) : (
           <Button mt={4} isFullWidth fontSize="22px" disabled>
             Sold out
           </Button>
-        )} */}
+        )}
       </Box>
     </Box>
   );
